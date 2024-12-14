@@ -1,3 +1,4 @@
+import 'package:denis/catatan.dart';
 import 'package:denis/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +25,8 @@ class MainApp extends StatelessWidget {
       home: const SplashScreen(),
       routes: {
         'splash': (context) => const SplashScreen(),
-        'home': (context) => const MyApp()
+        'home': (context) => const MyApp(),
+        'catatan': (context) => const CatatanScreen()
       },
     );
   }
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           // google fonts
           title: Text(
-            'Profil',
+            'Profile',
             style: GoogleFonts.montserrat(
                 textStyle: const TextStyle(
                     color: Colors.white, fontWeight: FontWeight.w500)),
@@ -72,9 +74,9 @@ class MyApp extends StatelessWidget {
               ),
               Container(
                 margin: const EdgeInsets.only(left: 20, right: 20),
-                child: Column(
+                child: const Column(
                   children: [
-                    const Text(
+                    Text(
                       "Halo, saya adalah seorang mahasiswa teknik informatika di ITB STIKOM AMBON tahun ke-3 lahir dan besar di Soahuku maluku tengah.",
                       style: TextStyle(
                           fontSize: 14,
@@ -82,7 +84,7 @@ class MyApp extends StatelessWidget {
                           color: Colors.grey),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 38,
                     ),
                     Row(
@@ -92,7 +94,7 @@ class MyApp extends StatelessWidget {
                         ),)
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 6,
                     ),
                     Row(
@@ -106,7 +108,7 @@ class MyApp extends StatelessWidget {
 
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 28,
                     ),
                     Row(
@@ -116,7 +118,7 @@ class MyApp extends StatelessWidget {
                         ),)
                       ],
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 6,
                     ),
                     Row(
@@ -236,6 +238,17 @@ class AppNavigationDrawer extends StatelessWidget {
                 Navigator.pop(context);
               } else {
                 Navigator.of(context).pushReplacementNamed('home');
+              }
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.menu_book),
+            title: const Text('Catatan'),
+            onTap: () {
+              if(currentRoute == 'catatan') {
+                Navigator.pop(context);
+              } else {
+                Navigator.of(context).pushReplacementNamed('catatan');
               }
             },
           ),
